@@ -1,0 +1,16 @@
+[versions]
+kotlin = "1.9.24"
+
+[libraries]
+androidx-core = { module = "androidx.core:core", version = "1.13.1" }
+compose-material3 = { module = "androidx.compose.material3:material3", version = "1.2.1" }
+compose-ui-graphics = { module = "androidx.compose.ui:ui-graphics", version = "1.6.7" }
+jetbrains-annotations = { module = "org.jetbrains:annotations", version = "24.1.0" }
+jetbrains-kotlin = { module = "org.jetbrains.kotlin:kotlin-stdlib", version.ref = "kotlin" }
+
+test-android-runner = { module = "androidx.test:runner", version = "1.5.2" }
+test-jUnit = { module = "junit:junit", version = "4.13.2" }
+
+[plugins]
+android-library = { id = "com.android.library", version = "8.4.1" }
+jetbrains-kotlin-android = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
