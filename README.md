@@ -12,7 +12,7 @@ application in runtime.
 
 ```kotlin
 dependencies {
-    implementation("com.github.g000sha256:material_color_scheme:0.0.1")
+    implementation("com.github.g000sha256:material_color_scheme:1.0.0")
 }
 
 repositories {

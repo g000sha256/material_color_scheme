@@ -1,7 +1,7 @@
 import org.jetbrains.kotlin.gradle.dsl.JvmTarget
 import org.jetbrains.kotlin.gradle.plugin.KotlinDependencyHandler
 
-val libraryVersion = "0.0.1"
+val libraryVersion = "1.0.0"
 
 group = "com.github.g000sha256"
 version = libraryVersion
