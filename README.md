@@ -2,22 +2,22 @@
 
 [![JitPack](https://jitpack.io/v/g000sha256/material_color_scheme.svg)](https://jitpack.io/#g000sha256/material_color_scheme)
 
-![Platform](https://img.shields.io/static/v1?color=green&label=Platform&message=Android)
-
-This library provides a builder for creating dynamic color schemes according to the Material 3
-guidelines. You no longer have to export large sets of colors. You can also change the theme of your
-application in runtime.
+This multiplatform library provides a builder for creating dynamic color schemes according to the
+Material 3 guidelines. You no longer have to export large sets of colors. You can also change the
+theme of your application in runtime.
 
 ## Installation
 
-```kotlin
-dependencies {
-    implementation("com.github.g000sha256:material_color_scheme:1.0.0")
-}
+#### Dependency
 
-repositories {
-    maven("https://jitpack.io")
-}
+```kotlin
+implementation("com.github.g000sha256:material_color_scheme:1.1.0")
+```
+
+#### Repository
+
+```kotlin
+maven("https://jitpack.io")
 ```
 
 ## Examples
@@ -77,7 +77,7 @@ MaterialTheme(colorScheme = colorScheme) {
 
 ## Color scheme settings
 
-Color scheme settings are valid for 05.05.2024.
+Color scheme settings are valid for 05.05.2024
 
 ### Naming
 
@@ -104,14 +104,8 @@ Color scheme settings are valid for 05.05.2024.
 
 ## Roadmap
 
-- [x] Code documentation
-- [x] Tests
-- [x] Obfuscation
-- [x] JitPack
-- [ ] Standard, medium and high contrast
-- [ ] Multiplatform
-- [ ] Maven repository with custom artifact id
-- [ ] Demo application
+- Standard, medium and high contrast
+- Demo application
 
 ## Resources
 

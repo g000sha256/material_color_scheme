@@ -1,4 +1,11 @@
 jdk:
   - openjdk17
 before_install:
+  - sdk install java 17.0.11-open
+  - sdk use java 17.0.11-open
   - git lfs pull
+install:
+  - ./gradlew clean
+  - ./gradlew assemble
+  - ./gradlew test
+  - ./gradlew publishToMavenLocal

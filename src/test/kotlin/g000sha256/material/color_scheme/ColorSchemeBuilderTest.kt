@@ -21,6 +21,7 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.toArgb
 import org.junit.Assert
 import org.junit.Test
+import utils.ColorUtils
 
 class ColorSchemeBuilderTest {
 
@@ -165,47 +166,30 @@ class ColorSchemeBuilderTest {
 
     private fun compare(name: String, expectedColor: Color, actualColor: Color) {
         val expectedArgb = expectedColor.toArgb()
-        val expectedRed = getRed(expectedArgb)
-        val expectedGreen = getGreen(expectedArgb)
-        val expectedBlue = getBlue(expectedArgb)
+        val expectedRed = ColorUtils.redFromArgb(expectedArgb)
+        val expectedGreen = ColorUtils.greenFromArgb(expectedArgb)
+        val expectedBlue = ColorUtils.blueFromArgb(expectedArgb)
 
         val actualArgb = actualColor.toArgb()
-        val actualRed = getRed(actualArgb)
-        val actualGreen = getGreen(actualArgb)
-        val actualBlue = getBlue(actualArgb)
+        val actualRed = ColorUtils.redFromArgb(actualArgb)
+        val actualGreen = ColorUtils.greenFromArgb(actualArgb)
+        val actualBlue = ColorUtils.blueFromArgb(actualArgb)
 
-        assertRange(
+        Assert.assertEquals(
             "name=$name, expectedRed=$expectedRed, actualRed=$actualRed",
             expectedRed,
-            actualRed - 1..actualRed + 1
+            actualRed
         )
-        assertRange(
+        Assert.assertEquals(
             "name=$name, expectedGreen=$expectedGreen, actualGreen=$actualGreen",
             expectedGreen,
-            actualGreen - 1..actualGreen + 1
+            actualGreen
         )
-        assertRange(
+        Assert.assertEquals(
             "name=$name, expectedBlue=$expectedBlue, actualBlue=$actualBlue",
             expectedBlue,
-            actualBlue - 1..actualBlue + 2 // 2 for error color
+            actualBlue
         )
-    }
-
-    private fun getRed(argb: Int): Int {
-        return (argb shr 16) and 0xFF
-    }
-
-    private fun getGreen(argb: Int): Int {
-        return (argb shr 8) and 0xFF
-    }
-
-    private fun getBlue(argb: Int): Int {
-        return argb and 0xFF
-    }
-
-    private fun assertRange(message: String, value: Int, range: IntRange) {
-        val condition = range.contains(value)
-        Assert.assertTrue(message, condition)
     }
 
 }

@@ -1,16 +1,17 @@
 [versions]
+compose = "1.6.11"
 kotlin = "1.9.24"
 
 [libraries]
-androidx-core = { module = "androidx.core:core", version = "1.13.1" }
-compose-material3 = { module = "androidx.compose.material3:material3", version = "1.2.1" }
-compose-ui-graphics = { module = "androidx.compose.ui:ui-graphics", version = "1.6.7" }
-jetbrains-annotations = { module = "org.jetbrains:annotations", version = "24.1.0" }
-jetbrains-kotlin = { module = "org.jetbrains.kotlin:kotlin-stdlib", version.ref = "kotlin" }
+library-compose-material3 = { module = "org.jetbrains.compose.material3:material3", version.ref = "compose" }
+library-compose-ui-graphics = { module = "org.jetbrains.compose.ui:ui-graphics", version.ref = "compose" }
 
-test-android-runner = { module = "androidx.test:runner", version = "1.5.2" }
+library-jetbrains-annotations = { module = "org.jetbrains:annotations", version = "24.1.0" }
+library-jetbrains-kotlin = { module = "org.jetbrains.kotlin:kotlin-stdlib", version.ref = "kotlin" }
+
 test-jUnit = { module = "junit:junit", version = "4.13.2" }
 
+plugin-proguard = { module = "com.guardsquare:proguard-gradle", version = "7.5.0" }
+
 [plugins]
-android-library = { id = "com.android.library", version = "8.4.1" }
-jetbrains-kotlin-android = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
+jetbrains-kotlin-jvm = { id = "org.jetbrains.kotlin.jvm", version.ref = "kotlin" }
