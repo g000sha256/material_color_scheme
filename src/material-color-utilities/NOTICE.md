@@ -1,7 +1,7 @@
 # material-color-utilities
 
 Copied from
-![material-color-utilities](https://github.com/material-foundation/material-color-utilities)
+[material-color-utilities](https://github.com/material-foundation/material-color-utilities)
 
 Files included:
 
