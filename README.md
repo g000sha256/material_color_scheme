@@ -1,7 +1,5 @@
 # Dynamic Material 3 color scheme builder for Compose
 
-[![JitPack](https://jitpack.io/v/g000sha256/material_color_scheme.svg)](https://jitpack.io/#g000sha256/material_color_scheme)
-
 This multiplatform library provides a builder for creating dynamic color schemes according to the
 Material 3 guidelines. You no longer have to export large sets of colors. You can also change the
 theme of your application in runtime.
@@ -10,14 +8,16 @@ theme of your application in runtime.
 
 #### Dependency
 
+> The artifact has been changed: `com.github.g000sha256:material_color_scheme` -> `dev.g000sha256:material-color-scheme`
+
 ```kotlin
-implementation("com.github.g000sha256:material_color_scheme:1.1.0")
+implementation("dev.g000sha256:material-color-scheme:1.2.0")
 ```
 
 #### Repository
 
 ```kotlin
-maven("https://jitpack.io")
+mavenCentral()
 ```
 
 ## Examples
