@@ -1,20 +1,25 @@
 # Dynamic Material 3 color scheme builder for Compose
 
-This multiplatform library provides a builder for creating dynamic color schemes according to the
-Material 3 guidelines. You no longer have to export large sets of colors. You can also change the
-theme of your application in runtime.
+![License](https://img.shields.io/static/v1?color=green&label=Platform&message=Android)
+![License](https://img.shields.io/static/v1?color=orange&label=Platform&message=JVM)
+
+This library provides a builder for creating dynamic color schemes according to the Material 3 guidelines.
+You no longer have to export large sets of colors. You can also change the theme of your application in runtime.
 
 ## Installation
 
 #### Dependency
 
-> The artifact has been changed: `com.github.g000sha256:material_color_scheme` -> `dev.g000sha256:material-color-scheme`
+> The artifact coordinates has been changed from `com.github.g000sha256:material_color_scheme`
+> to `dev.g000sha256:material-color-scheme`
 
 ```kotlin
 implementation("dev.g000sha256:material-color-scheme:1.2.0")
 ```
 
 #### Repository
+
+> The repository has been changed from `maven("https://jitpack.io")` to `mavenCentral()`
 
 ```kotlin
 mavenCentral()
@@ -85,12 +90,17 @@ Color scheme settings are valid for 05.05.2024
 |:-------:|:---------:|:--------:|:-------:|:---------------:|:-----:|
 |    P    |     S     |    T     |    N    |       NV        |   E   |
 
-### Hue and Chroma
+### Hue
 
-|        | P  | S  |  T  | N | NV | E |
-|--------|:--:|:--:|:---:|:-:|:--:|:-:|
-| Hue    | -  | -  | +60 | - | -  | - |
-| Chroma | 36 | 16 | 24  | 4 | 8  | - |
+|     | P | S |  T  | N | NV | E |
+|-----|:-:|:-:|:---:|:-:|:--:|:-:|
+| Hue | - | - | +60 | - | -  | - |
+
+### Chroma
+
+|        | P  | S  | T  | N | NV | E |
+|--------|:--:|:--:|:--:|:-:|:--:|:-:|
+| Chroma | 36 | 16 | 24 | 4 | 8  | - |
 
 ### Tone
 
