@@ -12,6 +12,8 @@ library-jetbrains-kotlin = { module = "org.jetbrains.kotlin:kotlin-stdlib", vers
 test-jUnit = { module = "junit:junit", version = "4.13.2" }
 
 plugin-proguard = { module = "com.guardsquare:proguard-gradle", version = "7.5.0" }
+plugin-sonatype = { module = "dev.g000sha256:sonatype-maven-central", version = "0.0.4" }
 
 [plugins]
+jetbrains-dokka = { id = "org.jetbrains.dokka", version = "1.9.20" }
 jetbrains-kotlin-jvm = { id = "org.jetbrains.kotlin.jvm", version.ref = "kotlin" }
