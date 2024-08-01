@@ -19,9 +19,9 @@ package g000sha256.material.color_scheme
 import androidx.compose.material3.ColorScheme
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.toArgb
-import org.junit.Assert
-import org.junit.Test
-import utils.ColorUtils
+import com.materialkolor.utils.ColorUtils
+import kotlin.test.Test
+import kotlin.test.assertEquals
 
 class ColorSchemeBuilderTest {
 
@@ -175,21 +175,9 @@ class ColorSchemeBuilderTest {
         val actualGreen = ColorUtils.greenFromArgb(actualArgb)
         val actualBlue = ColorUtils.blueFromArgb(actualArgb)
 
-        Assert.assertEquals(
-            "name=$name, expectedRed=$expectedRed, actualRed=$actualRed",
-            expectedRed,
-            actualRed
-        )
-        Assert.assertEquals(
-            "name=$name, expectedGreen=$expectedGreen, actualGreen=$actualGreen",
-            expectedGreen,
-            actualGreen
-        )
-        Assert.assertEquals(
-            "name=$name, expectedBlue=$expectedBlue, actualBlue=$actualBlue",
-            expectedBlue,
-            actualBlue
-        )
+        assertEquals(expectedRed, actualRed, message = "name=$name, expectedRed=$expectedRed, actualRed=$actualRed")
+        assertEquals(expectedGreen, actualGreen, message = "name=$name, expectedGreen=$expectedGreen, actualGreen=$actualGreen")
+        assertEquals(expectedBlue, actualBlue, message = "name=$name, expectedBlue=$expectedBlue, actualBlue=$actualBlue")
     }
 
 }

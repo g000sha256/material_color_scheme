@@ -18,19 +18,19 @@ package g000sha256.material.color_scheme.util
 
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.toArgb
-import hct.Cam16
-import hct.HctSolver
+import com.materialkolor.hct.Hct
+import com.materialkolor.hct.HctSolver
 
 internal fun Color.getHue(): Float {
-    val cam16 = toCam16()
-    return cam16.hue.toFloat()
+    val hct = toHct()
+    return hct.hue.toFloat()
 }
 
 internal fun Color.changeTone(tone: Float): Color {
-    val cam16 = toCam16()
-    val hue = cam16.hue.toFloat()
-    val chroma = cam16.chroma.toFloat()
-    return createColor(hue, chroma, tone)
+    val hct = toHct()
+    val doubleTone = tone.toDouble()
+    val argb = HctSolver.solveToInt(hct.hue, hct.chroma, doubleTone)
+    return Color(argb)
 }
 
 internal fun createColor(hue: Float, chroma: Float, tone: Float): Color {
@@ -41,7 +41,7 @@ internal fun createColor(hue: Float, chroma: Float, tone: Float): Color {
     return Color(argb)
 }
 
-private fun Color.toCam16(): Cam16 {
+private fun Color.toHct(): Hct {
     val argb = toArgb()
-    return Cam16.fromInt(argb)
+    return Hct.fromInt(argb)
 }

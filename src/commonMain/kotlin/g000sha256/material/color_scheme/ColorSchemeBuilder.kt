@@ -14,13 +14,10 @@
  * limitations under the License.
  */
 
-@file:Keep
-
 package g000sha256.material.color_scheme
 
 import androidx.compose.material3.ColorScheme
 import androidx.compose.ui.graphics.Color
-import g000sha256.material.color_scheme.annotation.Keep
 import g000sha256.material.color_scheme.util.changeTone
 import g000sha256.material.color_scheme.util.createColor
 import g000sha256.material.color_scheme.util.getHue
@@ -46,8 +43,7 @@ import g000sha256.material.color_scheme.util.getHue
  * @see [ColorSchemeMode.Dark]
  * @see [ColorSchemeMode.Light]
  */
-@Keep
-fun buildColorScheme(
+public fun buildColorScheme(
     mode: ColorSchemeMode,
     primary: Color,
     secondary: Color? = null,

@@ -16,8 +16,6 @@
 
 package g000sha256.material.color_scheme
 
-import g000sha256.material.color_scheme.annotation.Keep
-
 /**
  * Represents one of two modes for creating Material 3 color schemes.
  *
@@ -27,8 +25,7 @@ import g000sha256.material.color_scheme.annotation.Keep
  *
  * @see [buildColorScheme]
  */
-@Keep
-sealed class ColorSchemeMode private constructor() {
+public sealed class ColorSchemeMode private constructor() {
 
     /**
      * Represents a dark color scheme.
@@ -36,8 +33,7 @@ sealed class ColorSchemeMode private constructor() {
      * @see [ColorSchemeMode]
      * @see [buildColorScheme]
      */
-    @Keep
-    data object Dark : ColorSchemeMode() {
+    public data object Dark : ColorSchemeMode() {
 
         override fun toString(): String {
             return "ColorSchemeMode.Dark"
@@ -51,8 +47,7 @@ sealed class ColorSchemeMode private constructor() {
      * @see [ColorSchemeMode]
      * @see [buildColorScheme]
      */
-    @Keep
-    data object Light : ColorSchemeMode() {
+    public data object Light : ColorSchemeMode() {
 
         override fun toString(): String {
             return "ColorSchemeMode.Light"

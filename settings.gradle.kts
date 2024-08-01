@@ -1,5 +1,8 @@
 pluginManagement {
-    repositories { mavenCentral() }
+    repositories {
+        google()
+        mavenCentral()
+    }
 }
 
 dependencyResolutionManagement {

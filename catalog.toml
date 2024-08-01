@@ -1,6 +1,6 @@
 [versions]
 compose = "1.6.11"
-kotlin = "1.9.24"
+kotlin = "2.0.0"
 
 [libraries]
 library-compose-material3 = { module = "org.jetbrains.compose.material3:material3", version.ref = "compose" }
@@ -9,11 +9,15 @@ library-compose-ui-graphics = { module = "org.jetbrains.compose.ui:ui-graphics",
 library-jetbrains-annotations = { module = "org.jetbrains:annotations", version = "24.1.0" }
 library-jetbrains-kotlin = { module = "org.jetbrains.kotlin:kotlin-stdlib", version.ref = "kotlin" }
 
-test-jUnit = { module = "junit:junit", version = "4.13.2" }
+library-materialColorUtilities = { module = "com.materialkolor:material-color-utilities", version = "1.7.0" }
 
-plugin-proguard = { module = "com.guardsquare:proguard-gradle", version = "7.5.0" }
+test-kotlin = { module = "org.jetbrains.kotlin:kotlin-test", version.ref = "kotlin" }
+
 plugin-sonatype = { module = "dev.g000sha256:sonatype-maven-central", version = "0.0.4" }
 
 [plugins]
+android-library = { id = "com.android.library", version = "8.4.2" }
+
 jetbrains-dokka = { id = "org.jetbrains.dokka", version = "1.9.20" }
-jetbrains-kotlin-jvm = { id = "org.jetbrains.kotlin.jvm", version.ref = "kotlin" }
+jetbrains-kotlin-binaryCompatibilityValidator = { id = "org.jetbrains.kotlinx.binary-compatibility-validator", version = "0.16.2" }
+jetbrains-kotlin-multiplatform = { id = "org.jetbrains.kotlin.multiplatform", version.ref = "kotlin" }
