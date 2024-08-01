@@ -10,7 +10,7 @@ You no longer have to export large sets of colors. You can also change the theme
 
 #### Dependency
 
-> The artifact coordinates has been changed from `com.github.g000sha256:material_color_scheme`
+> The artifact coordinates have been changed from `com.github.g000sha256:material_color_scheme`
 > to `dev.g000sha256:material-color-scheme`
 
 ```kotlin
@@ -84,23 +84,17 @@ MaterialTheme(colorScheme = colorScheme) {
 
 Color scheme settings are valid for 05.05.2024
 
-### Naming
-
-| Primary | Secondary | Tertiary | Neutral | Neutral Variant | Error |
-|:-------:|:---------:|:--------:|:-------:|:---------------:|:-----:|
-|    P    |     S     |    T     |    N    |       NV        |   E   |
-
 ### Hue
 
-|     | P | S |  T  | N | NV | E |
-|-----|:-:|:-:|:---:|:-:|:--:|:-:|
-| Hue | - | - | +60 | - | -  | - |
+|     | P (Primary) | S (Secondary) | T (Tertiary) | N (Neutral) | NV (Neutral Variant) | E (Error) |
+|-----|:-----------:|:-------------:|:------------:|:-----------:|:--------------------:|:---------:|
+| Hue |      -      |       -       |     +60      |      -      |          -           |     -     |
 
 ### Chroma
 
-|        | P  | S  | T  | N | NV | E |
-|--------|:--:|:--:|:--:|:-:|:--:|:-:|
-| Chroma | 36 | 16 | 24 | 4 | 8  | - |
+|        | P (Primary) | S (Secondary) | T (Tertiary) | N (Neutral) | NV (Neutral Variant) | E (Error) |
+|--------|:-----------:|:-------------:|:------------:|:-----------:|:--------------------:|:---------:|
+| Chroma |     36      |      16       |      24      |      4      |          8           |     -     |
 
 ### Tone
 
@@ -111,11 +105,6 @@ Color scheme settings are valid for 05.05.2024
 #### Light
 
 <img src="images/light.png" />
-
-## Roadmap
-
-- Standard, medium and high contrast
-- Demo application
 
 ## Resources
 
