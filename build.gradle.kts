@@ -49,8 +49,6 @@ sourceSets {
     main { java.srcDirs("src/material-color-utilities/java") }
 }
 
-val originalJarTaskProvider = tasks.jar
-
 val sourcesJarTaskProvider = tasks.kotlinSourcesJar
 
 val dokkaJavaDocTaskProvider = tasks.dokkaJavadoc
@@ -103,22 +101,11 @@ publishing {
                     system = "GitHub Issues"
                     url = "https://github.com/g000sha256/material_color_scheme/issues"
                 }
-
-                withXml {
-                    val rootNode = asNode()
-                    val dependenciesNode = rootNode.appendNode("dependencies")
-                    val configuration = configurations.implementation.get()
-                    configuration.dependencies.forEach { dependency ->
-                        val dependencyNode = dependenciesNode.appendNode("dependency")
-                        dependencyNode.appendNode("groupId", dependency.group)
-                        dependencyNode.appendNode("artifactId", dependency.name)
-                        dependencyNode.appendNode("version", dependency.version)
-                        dependencyNode.appendNode("scope", "runtime")
-                    }
-                }
             }
 
-            artifact(originalJarTaskProvider)
+            val component = components["kotlin"]
+            from(component)
+
             artifact(sourcesJarTaskProvider)
             artifact(dokkaJavaDocJarTaskProvider)
         }
