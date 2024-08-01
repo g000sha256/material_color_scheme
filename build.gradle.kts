@@ -8,7 +8,7 @@ val projectName = name
 
 val libraryGroup = "dev.g000sha256"
 val libraryModule = "material-color-scheme"
-val libraryVersion = "1.3.0"
+val libraryVersion = "1.3.1"
 
 buildscript {
     dependencies { classpath(catalog.plugin.sonatype) }
