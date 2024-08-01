@@ -1,17 +1,13 @@
 import g000sha256.sonatype_maven_central.SonatypeMavenCentralType
 import g000sha256.sonatype_maven_central.sonatypeMavenCentralRepository
 import org.jetbrains.kotlin.gradle.dsl.JvmTarget
-import proguard.gradle.ProGuardTask
 
 val libraryGroup = "dev.g000sha256"
 val libraryModule = "material-color-scheme"
 val libraryVersion = "1.2.0"
 
 buildscript {
-    dependencies {
-        classpath(catalog.plugin.proguard)
-        classpath(catalog.plugin.sonatype)
-    }
+    dependencies { classpath(catalog.plugin.sonatype) }
 }
 
 plugins {
@@ -54,31 +50,6 @@ sourceSets {
 }
 
 val originalJarTaskProvider = tasks.jar
-originalJarTaskProvider.configure { archiveClassifier = "compiled" }
-
-val minifyTaskProvider = tasks.register<ProGuardTask>("minify") {
-    group = "build"
-    dependsOn(originalJarTaskProvider)
-
-    val javaHomePath = System.getProperty("java.home")
-    libraryjars("$javaHomePath/jmods/java.base.jmod")
-
-    val classpathFiles = mutableSetOf<File>()
-    val compileClasspathConfiguration = configurations.compileClasspath.get()
-    classpathFiles += compileClasspathConfiguration.resolve()
-    val runtimeClasspathConfiguration = configurations.runtimeClasspath.get()
-    classpathFiles += runtimeClasspathConfiguration.resolve()
-    libraryjars(classpathFiles)
-
-    injars(originalJarTaskProvider)
-    outjars("build/libs/$libraryModule-$libraryVersion-minified.jar")
-
-    configuration("proguard.pro")
-    printconfiguration("build/proguard/configuration.txt")
-    printmapping("build/proguard/mapping.txt")
-    printseeds("build/proguard/seeds.txt")
-    printusage("build/proguard/usage.txt")
-}
 
 val sourcesJarTaskProvider = tasks.kotlinSourcesJar
 
@@ -147,13 +118,9 @@ publishing {
                 }
             }
 
-            val minifyTask = minifyTaskProvider.get()
-            val minifyJar = minifyTask.outJarFiles.single()
-            artifact(minifyJar) { builtBy(minifyTaskProvider) }
-
-            artifact(sourcesJarTaskProvider) { builtBy(sourcesJarTaskProvider) }
-
-            artifact(dokkaJavaDocJarTaskProvider) { builtBy(dokkaJavaDocJarTaskProvider) }
+            artifact(originalJarTaskProvider)
+            artifact(sourcesJarTaskProvider)
+            artifact(dokkaJavaDocJarTaskProvider)
         }
     }
 }
