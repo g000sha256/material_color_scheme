@@ -14,7 +14,7 @@ You no longer have to export large sets of colors. You can also change the theme
 > to `dev.g000sha256:material-color-scheme`
 
 ```kotlin
-implementation("dev.g000sha256:material-color-scheme:1.2.0")
+implementation("dev.g000sha256:material-color-scheme:1.3.0")
 ```
 
 #### Repository
