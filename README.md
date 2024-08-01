@@ -2,6 +2,9 @@
 
 ![License](https://img.shields.io/static/v1?color=green&label=Platform&message=Android)
 ![License](https://img.shields.io/static/v1?color=orange&label=Platform&message=JVM)
+![License](https://img.shields.io/static/v1?color=blue&label=Platform&message=iOS)
+![License](https://img.shields.io/static/v1?color=white&label=Platform&message=MacOS)
+![License](https://img.shields.io/static/v1?color=purple&label=Platform&message=JS)
 
 This library provides a builder for creating dynamic color schemes according to the Material 3 guidelines.
 You no longer have to export large sets of colors. You can also change the theme of your application in runtime.
