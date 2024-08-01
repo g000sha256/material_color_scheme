@@ -36,6 +36,7 @@ kotlin {
 
                 implementation(catalog.library.compose.material3)
                 implementation(catalog.library.compose.ui.graphics)
+                implementation(catalog.library.materialColorUtilities)
             }
         }
 
@@ -43,10 +44,6 @@ kotlin {
             dependencies { implementation(catalog.test.kotlin) }
         }
     }
-}
-
-sourceSets {
-    main { java.srcDirs("src/material-color-utilities/java") }
 }
 
 val sourcesJarTaskProvider = tasks.kotlinSourcesJar

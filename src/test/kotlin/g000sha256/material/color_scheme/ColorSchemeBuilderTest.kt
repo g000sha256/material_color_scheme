@@ -19,9 +19,9 @@ package g000sha256.material.color_scheme
 import androidx.compose.material3.ColorScheme
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.toArgb
+import com.materialkolor.utils.ColorUtils
 import kotlin.test.Test
 import kotlin.test.assertEquals
-import utils.ColorUtils
 
 class ColorSchemeBuilderTest {
 
