@@ -9,7 +9,7 @@ library-compose-ui-graphics = { module = "org.jetbrains.compose.ui:ui-graphics",
 library-jetbrains-annotations = { module = "org.jetbrains:annotations", version = "24.1.0" }
 library-jetbrains-kotlin = { module = "org.jetbrains.kotlin:kotlin-stdlib", version.ref = "kotlin" }
 
-test-jUnit = { module = "junit:junit", version = "4.13.2" }
+test-kotlin = { module = "org.jetbrains.kotlin:kotlin-test", version.ref = "kotlin" }
 
 plugin-sonatype = { module = "dev.g000sha256:sonatype-maven-central", version = "0.0.4" }
 

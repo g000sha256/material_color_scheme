@@ -40,7 +40,7 @@ kotlin {
         }
 
         test {
-            dependencies { implementation(catalog.test.jUnit) }
+            dependencies { implementation(catalog.test.kotlin) }
         }
     }
 }
