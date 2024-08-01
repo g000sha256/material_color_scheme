@@ -19,4 +19,5 @@ plugin-sonatype = { module = "dev.g000sha256:sonatype-maven-central", version = 
 android-library = { id = "com.android.library", version = "8.4.2" }
 
 jetbrains-dokka = { id = "org.jetbrains.dokka", version = "1.9.20" }
+jetbrains-kotlin-binaryCompatibilityValidator = { id = "org.jetbrains.kotlinx.binary-compatibility-validator", version = "0.16.2" }
 jetbrains-kotlin-multiplatform = { id = "org.jetbrains.kotlin.multiplatform", version.ref = "kotlin" }

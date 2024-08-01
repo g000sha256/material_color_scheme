@@ -17,6 +17,7 @@ buildscript {
 plugins {
     alias(catalog.plugins.android.library)
     alias(catalog.plugins.jetbrains.dokka)
+    alias(catalog.plugins.jetbrains.kotlin.binaryCompatibilityValidator)
     alias(catalog.plugins.jetbrains.kotlin.multiplatform)
     id("org.gradle.maven-publish")
     id("org.gradle.signing")
