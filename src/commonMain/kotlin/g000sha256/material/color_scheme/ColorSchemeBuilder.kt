@@ -43,7 +43,7 @@ import g000sha256.material.color_scheme.util.getHue
  * @see [ColorSchemeMode.Dark]
  * @see [ColorSchemeMode.Light]
  */
-fun buildColorScheme(
+public fun buildColorScheme(
     mode: ColorSchemeMode,
     primary: Color,
     secondary: Color? = null,

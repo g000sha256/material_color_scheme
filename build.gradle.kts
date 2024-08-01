@@ -43,6 +43,7 @@ java {
 }
 
 kotlin {
+    explicitApi()
     withSourcesJar(publish = true)
 
     androidTarget {

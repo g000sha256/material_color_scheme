@@ -25,7 +25,7 @@ package g000sha256.material.color_scheme
  *
  * @see [buildColorScheme]
  */
-sealed class ColorSchemeMode private constructor() {
+public sealed class ColorSchemeMode private constructor() {
 
     /**
      * Represents a dark color scheme.
@@ -33,7 +33,7 @@ sealed class ColorSchemeMode private constructor() {
      * @see [ColorSchemeMode]
      * @see [buildColorScheme]
      */
-    data object Dark : ColorSchemeMode() {
+    public data object Dark : ColorSchemeMode() {
 
         override fun toString(): String {
             return "ColorSchemeMode.Dark"
@@ -47,7 +47,7 @@ sealed class ColorSchemeMode private constructor() {
      * @see [ColorSchemeMode]
      * @see [buildColorScheme]
      */
-    data object Light : ColorSchemeMode() {
+    public data object Light : ColorSchemeMode() {
 
         override fun toString(): String {
             return "ColorSchemeMode.Light"
