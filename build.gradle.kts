@@ -5,7 +5,7 @@ import org.jetbrains.kotlin.gradle.dsl.JvmTarget
 import org.jetbrains.kotlin.gradle.targets.js.dsl.ExperimentalWasmDsl
 
 group = "dev.g000sha256"
-version = "1.3.1"
+version = "1.4.0"
 
 buildscript {
     dependencies { classpath(catalog.plugin.sonatype) }

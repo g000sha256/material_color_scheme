@@ -14,7 +14,7 @@ You no longer have to export large sets of colors. You can also change the theme
 ### Dependency
 
 ```kotlin
-implementation("dev.g000sha256:material-color-scheme:1.3.1")
+implementation("dev.g000sha256:material-color-scheme:1.4.0")
 ```
 
 > [!NOTE]
