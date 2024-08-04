@@ -13,6 +13,7 @@ buildscript {
 
 plugins {
     alias(catalog.plugins.android.library)
+    alias(catalog.plugins.jetbrains.compose)
     alias(catalog.plugins.jetbrains.dokka)
     alias(catalog.plugins.jetbrains.kotlin.binaryCompatibilityValidator)
     alias(catalog.plugins.jetbrains.kotlin.multiplatform)
@@ -80,7 +81,10 @@ kotlin {
                 implementation(catalog.library.jetbrains.annotations)
                 implementation(catalog.library.jetbrains.kotlin)
 
+                implementation(catalog.library.compose.animation)
+                implementation(catalog.library.compose.animationCore)
                 implementation(catalog.library.compose.material3)
+                implementation(catalog.library.compose.runtime)
                 implementation(catalog.library.compose.ui.graphics)
                 implementation(catalog.library.materialColorUtilities)
             }
