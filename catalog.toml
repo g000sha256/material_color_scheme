@@ -3,8 +3,11 @@ compose = "1.6.11"
 kotlin = "2.0.0"
 
 [libraries]
+library-compose-animation = { module = "org.jetbrains.compose.animation:animation", version.ref = "compose" }
+library-compose-animationCore = { module = "org.jetbrains.compose.animation:animation-core", version.ref = "compose" }
 library-compose-material3 = { module = "org.jetbrains.compose.material3:material3", version.ref = "compose" }
-library-compose-ui-graphics = { module = "org.jetbrains.compose.ui:ui-graphics", version.ref = "compose" }
+library-compose-runtime = { module = "org.jetbrains.compose.runtime:runtime", version.ref = "compose" }
+library-compose-uiGraphics = { module = "org.jetbrains.compose.ui:ui-graphics", version.ref = "compose" }
 
 library-jetbrains-annotations = { module = "org.jetbrains:annotations", version = "24.1.0" }
 library-jetbrains-kotlin = { module = "org.jetbrains.kotlin:kotlin-stdlib", version.ref = "kotlin" }
@@ -13,11 +16,12 @@ library-materialColorUtilities = { module = "com.materialkolor:material-color-ut
 
 test-kotlin = { module = "org.jetbrains.kotlin:kotlin-test", version.ref = "kotlin" }
 
-plugin-sonatype = { module = "dev.g000sha256:sonatype-maven-central", version = "0.0.5" }
+plugin-sonatype = { module = "dev.g000sha256:sonatype-maven-central", version = "0.0.6" }
 
 [plugins]
-android-library = { id = "com.android.library", version = "8.4.2" }
+androidLibrary = { id = "com.android.library", version = "8.4.2" }
 
+jetbrains-binaryCompatibilityValidator = { id = "org.jetbrains.kotlinx.binary-compatibility-validator", version = "0.16.2" }
+jetbrains-compose = { id = "org.jetbrains.kotlin.plugin.compose", version.ref = "kotlin" }
 jetbrains-dokka = { id = "org.jetbrains.dokka", version = "1.9.20" }
-jetbrains-kotlin-binaryCompatibilityValidator = { id = "org.jetbrains.kotlinx.binary-compatibility-validator", version = "0.16.2" }
-jetbrains-kotlin-multiplatform = { id = "org.jetbrains.kotlin.multiplatform", version.ref = "kotlin" }
+jetbrains-kotlinMultiplatform = { id = "org.jetbrains.kotlin.multiplatform", version.ref = "kotlin" }

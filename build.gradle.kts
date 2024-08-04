@@ -4,21 +4,19 @@ import org.jetbrains.kotlin.gradle.ExperimentalKotlinGradlePluginApi
 import org.jetbrains.kotlin.gradle.dsl.JvmTarget
 import org.jetbrains.kotlin.gradle.targets.js.dsl.ExperimentalWasmDsl
 
-val projectName = name
-
-val libraryGroup = "dev.g000sha256"
-val libraryModule = "material-color-scheme"
-val libraryVersion = "1.3.1"
+group = "dev.g000sha256"
+version = "1.4.0"
 
 buildscript {
     dependencies { classpath(catalog.plugin.sonatype) }
 }
 
 plugins {
-    alias(catalog.plugins.android.library)
+    alias(catalog.plugins.androidLibrary)
+    alias(catalog.plugins.jetbrains.binaryCompatibilityValidator)
+    alias(catalog.plugins.jetbrains.compose)
     alias(catalog.plugins.jetbrains.dokka)
-    alias(catalog.plugins.jetbrains.kotlin.binaryCompatibilityValidator)
-    alias(catalog.plugins.jetbrains.kotlin.multiplatform)
+    alias(catalog.plugins.jetbrains.kotlinMultiplatform)
     id("org.gradle.maven-publish")
     id("org.gradle.signing")
 }
@@ -83,8 +81,11 @@ kotlin {
                 implementation(catalog.library.jetbrains.annotations)
                 implementation(catalog.library.jetbrains.kotlin)
 
+                implementation(catalog.library.compose.animation)
+                implementation(catalog.library.compose.animationCore)
                 implementation(catalog.library.compose.material3)
-                implementation(catalog.library.compose.ui.graphics)
+                implementation(catalog.library.compose.runtime)
+                implementation(catalog.library.compose.uiGraphics)
                 implementation(catalog.library.materialColorUtilities)
             }
         }
@@ -109,10 +110,7 @@ val dokkaJavaDocJarTaskProvider = tasks.register<Jar>("dokkaJavaDocJar") {
 publishing {
     publications {
         withType<MavenPublication> {
-            groupId = libraryGroup
-            version = libraryVersion
-
-            afterEvaluate { artifactId = artifactId.replace(projectName, libraryModule) }
+            artifact(dokkaJavaDocJarTaskProvider)
 
             pom {
                 name = "Material Color Scheme"
@@ -147,8 +145,6 @@ publishing {
                     url = "https://github.com/g000sha256/material_color_scheme/issues"
                 }
             }
-
-            artifact(dokkaJavaDocJarTaskProvider)
         }
     }
 }

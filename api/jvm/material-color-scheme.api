@@ -1,12 +1,18 @@
+public final class g000sha256/material/color_scheme/ColorSchemeAnimatorKt {
+	public static final fun animateColorScheme (Landroidx/compose/material3/ColorScheme;Landroidx/compose/animation/core/AnimationSpec;Landroidx/compose/runtime/Composer;II)Landroidx/compose/material3/ColorScheme;
+}
+
 public final class g000sha256/material/color_scheme/ColorSchemeBuilderKt {
 	public static final fun buildColorScheme-ASVOZCQ (Lg000sha256/material/color_scheme/ColorSchemeMode;JLandroidx/compose/ui/graphics/Color;Landroidx/compose/ui/graphics/Color;Landroidx/compose/ui/graphics/Color;Landroidx/compose/ui/graphics/Color;J)Landroidx/compose/material3/ColorScheme;
 	public static synthetic fun buildColorScheme-ASVOZCQ$default (Lg000sha256/material/color_scheme/ColorSchemeMode;JLandroidx/compose/ui/graphics/Color;Landroidx/compose/ui/graphics/Color;Landroidx/compose/ui/graphics/Color;Landroidx/compose/ui/graphics/Color;JILjava/lang/Object;)Landroidx/compose/material3/ColorScheme;
 }
 
 public abstract class g000sha256/material/color_scheme/ColorSchemeMode {
+	public static final field $stable I
 }
 
 public final class g000sha256/material/color_scheme/ColorSchemeMode$Dark : g000sha256/material/color_scheme/ColorSchemeMode {
+	public static final field $stable I
 	public static final field INSTANCE Lg000sha256/material/color_scheme/ColorSchemeMode$Dark;
 	public fun equals (Ljava/lang/Object;)Z
 	public fun hashCode ()I
@@ -14,6 +20,7 @@ public final class g000sha256/material/color_scheme/ColorSchemeMode$Dark : g000s
 }
 
 public final class g000sha256/material/color_scheme/ColorSchemeMode$Light : g000sha256/material/color_scheme/ColorSchemeMode {
+	public static final field $stable I
 	public static final field INSTANCE Lg000sha256/material/color_scheme/ColorSchemeMode$Light;
 	public fun equals (Ljava/lang/Object;)Z
 	public fun hashCode ()I

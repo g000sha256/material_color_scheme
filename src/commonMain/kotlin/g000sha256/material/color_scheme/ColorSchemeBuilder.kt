@@ -18,6 +18,7 @@ package g000sha256.material.color_scheme
 
 import androidx.compose.material3.ColorScheme
 import androidx.compose.ui.graphics.Color
+import g000sha256.material.color_scheme.util.ColorScheme
 import g000sha256.material.color_scheme.util.changeTone
 import g000sha256.material.color_scheme.util.createColor
 import g000sha256.material.color_scheme.util.getHue
@@ -151,7 +152,7 @@ private fun createDarkColorScheme(
     val error80 = error.changeTone(tone = 80F)
     val error90 = error.changeTone(tone = 90F)
 
-    return createColorScheme(
+    return ColorScheme(
         primary = primary80,
         onPrimary = primary20,
         primaryContainer = primary30,
@@ -240,7 +241,7 @@ private fun createLightColorScheme(
     val error90 = error.changeTone(tone = 90F)
     val error100 = error.changeTone(tone = 100F)
 
-    return createColorScheme(
+    return ColorScheme(
         primary = primary40,
         onPrimary = primary100,
         primaryContainer = primary90,
@@ -274,80 +275,5 @@ private fun createLightColorScheme(
         surfaceContainerHighest = neutral90,
         surfaceContainerLow = neutral96,
         surfaceContainerLowest = neutral100
-    )
-}
-
-private fun createColorScheme(
-    primary: Color,
-    onPrimary: Color,
-    primaryContainer: Color,
-    onPrimaryContainer: Color,
-    inversePrimary: Color,
-    secondary: Color,
-    onSecondary: Color,
-    secondaryContainer: Color,
-    onSecondaryContainer: Color,
-    tertiary: Color,
-    onTertiary: Color,
-    tertiaryContainer: Color,
-    onTertiaryContainer: Color,
-    surface: Color,
-    onSurface: Color,
-    surfaceVariant: Color,
-    onSurfaceVariant: Color,
-    inverseSurface: Color,
-    inverseOnSurface: Color,
-    error: Color,
-    onError: Color,
-    errorContainer: Color,
-    onErrorContainer: Color,
-    outline: Color,
-    outlineVariant: Color,
-    scrim: Color,
-    surfaceBright: Color,
-    surfaceDim: Color,
-    surfaceContainer: Color,
-    surfaceContainerHigh: Color,
-    surfaceContainerHighest: Color,
-    surfaceContainerLow: Color,
-    surfaceContainerLowest: Color
-): ColorScheme {
-    return ColorScheme(
-        primary = primary,
-        onPrimary = onPrimary,
-        primaryContainer = primaryContainer,
-        onPrimaryContainer = onPrimaryContainer,
-        inversePrimary = inversePrimary,
-        secondary = secondary,
-        onSecondary = onSecondary,
-        secondaryContainer = secondaryContainer,
-        onSecondaryContainer = onSecondaryContainer,
-        tertiary = tertiary,
-        onTertiary = onTertiary,
-        tertiaryContainer = tertiaryContainer,
-        onTertiaryContainer = onTertiaryContainer,
-        background = surface,     // surface
-        onBackground = onSurface, // onSurface
-        surface = surface,
-        onSurface = onSurface,
-        surfaceVariant = surfaceVariant,
-        onSurfaceVariant = onSurfaceVariant,
-        surfaceTint = primary,    // primary
-        inverseSurface = inverseSurface,
-        inverseOnSurface = inverseOnSurface,
-        error = error,
-        onError = onError,
-        errorContainer = errorContainer,
-        onErrorContainer = onErrorContainer,
-        outline = outline,
-        outlineVariant = outlineVariant,
-        scrim = scrim,
-        surfaceBright = surfaceBright,
-        surfaceDim = surfaceDim,
-        surfaceContainer = surfaceContainer,
-        surfaceContainerHigh = surfaceContainerHigh,
-        surfaceContainerHighest = surfaceContainerHighest,
-        surfaceContainerLow = surfaceContainerLow,
-        surfaceContainerLowest = surfaceContainerLowest
     )
 }

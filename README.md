@@ -4,81 +4,110 @@
 ![License](https://img.shields.io/static/v1?color=orange&label=Platform&message=JVM)
 ![License](https://img.shields.io/static/v1?color=blue&label=Platform&message=iOS)
 ![License](https://img.shields.io/static/v1?color=white&label=Platform&message=MacOS)
-![License](https://img.shields.io/static/v1?color=purple&label=Platform&message=JS)
+![License](https://img.shields.io/static/v1?color=yellow&label=Platform&message=JS)
 
 This library provides a builder for creating dynamic color schemes according to the Material 3 guidelines.
 You no longer have to export large sets of colors. You can also change the theme of your application in runtime.
 
 ## Installation
 
-#### Dependency
+### Dependency
 
+```kotlin
+implementation("dev.g000sha256:material-color-scheme:1.4.0")
+```
+
+> [!NOTE]
 > The artifact coordinates have been changed from `com.github.g000sha256:material_color_scheme`
 > to `dev.g000sha256:material-color-scheme`
 
-```kotlin
-implementation("dev.g000sha256:material-color-scheme:1.3.1")
-```
-
-#### Repository
-
-> The repository has been changed from `maven("https://jitpack.io")` to `mavenCentral()`
+### Repository
 
 ```kotlin
 mavenCentral()
 ```
 
+> [!NOTE]
+> The repository has been changed from `maven("https://jitpack.io")` to `mavenCentral()`
+
 ## Examples
 
-#### How to build a color scheme using any primary color
+### How to build a color scheme using any primary color
 
 ```kotlin
-val isDark = booleanResource(id = R.bool.is_dark)
-val colorScheme = remember(isDark) {
+val isDark: Boolean = TODO()
+val primaryColor: Color = TODO()
+val updatedColorScheme = remember(isDark, primaryColor) {
     return@remember buildColorScheme(
         mode = if (isDark) ColorSchemeMode.Dark else ColorSchemeMode.Light,
-        primary = Color(red = 0, green = 255, blue = 0)
+        primary = primaryColor
     )
+}
+MaterialTheme(colorScheme = updatedColorScheme) {
+    // content
 }
 ```
 
-#### How to build a color scheme using custom colors
+### How to build a color scheme using custom colors
 
 ```kotlin
-val isDark = booleanResource(id = R.bool.is_dark)
-val colorScheme = remember(isDark) {
+val isDark: Boolean = TODO()
+val primaryColor: Color = TODO()
+val secondaryColor: Color = TODO()
+val tertiaryColor: Color = TODO()
+val neutralColor: Color = TODO()
+val neutralVariantColor: Color = TODO()
+val errorColor: Color = TODO()
+val updatedColorScheme = remember(isDark, primaryColor, secondaryColor, tertiaryColor, neutralColor, neutralVariantColor, errorColor) {
     return@remember buildColorScheme(
         mode = if (isDark) ColorSchemeMode.Dark else ColorSchemeMode.Light,
-        primary = Color(red = 0, green = 255, blue = 0),
-        secondary = Color(red = 115, green = 155, blue = 100),
-        tertiary = Color(red = 0, green = 160, blue = 170),
-        neutral = Color(red = 145, green = 145, blue = 140),
-        neutralVariant = Color(red = 140, green = 145, blue = 135),
-        error = Color(red = 255, green = 85, blue = 75)
+        primary = primaryColor,
+        secondary = secondaryColor,
+        tertiary = tertiaryColor,
+        neutral = neutralColor,
+        neutralVariant = neutralVariantColor,
+        error = errorColor
     )
+}
+MaterialTheme(colorScheme = updatedColorScheme) {
+    // content
 }
 ```
 
-#### How to override generated colors
+### How to override generated colors
 
 ```kotlin
-val isDark = booleanResource(id = R.bool.is_dark)
-val colorScheme = remember(isDark) {
+val isDark: Boolean = TODO()
+val primaryColor: Color = TODO()
+val outlineColor: Color = TODO()
+val updatedColorScheme = remember(isDark, primaryColor, outlineColor) {
     val scheme = buildColorScheme(
         mode = if (isDark) ColorSchemeMode.Dark else ColorSchemeMode.Light,
-        primary = Color(red = 0, green = 255, blue = 0)
+        primary = primaryColor
     )
     return@remember scheme.copy(
-        outline = Color(red = 50, green = 50, blue = 50)
+        outline = outlineColor,
         // override other colors here
     )
 }
+MaterialTheme(colorScheme = updatedColorScheme) {
+    // content
+}
 ```
 
-#### How to apply
+### How to animate changes
 
 ```kotlin
-MaterialTheme(colorScheme = colorScheme) {
+val isDark: Boolean = TODO()
+val primaryColor: Color = TODO()
+val updatedColorScheme = remember(isDark, primaryColor) {
+    return@remember buildColorScheme(
+        mode = if (isDark) ColorSchemeMode.Dark else ColorSchemeMode.Light,
+        primary = primaryColor
+    )
+}
+val animatedColorScheme = animateColorScheme(updatedColorScheme)
+MaterialTheme(colorScheme = animatedColorScheme) {
     // content
 }
 ```

@@ -1,3 +1,5 @@
+rootProject.name = "material-color-scheme"
+
 pluginManagement {
     repositories {
         google()
