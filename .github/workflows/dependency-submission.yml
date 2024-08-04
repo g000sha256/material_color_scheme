@@ -1,14 +1,15 @@
-name: Build
+name: Dependency submission
 
 on:
   push:
     branches:
       - 'master'
-      - 'release'
-      - '[0-9]+.[0-9]+.[0-9]+'
+
+permissions:
+  contents: write
 
 jobs:
-  build:
+  dependency-submission:
     runs-on: macos-latest
 
     steps:
@@ -23,11 +24,6 @@ jobs:
           distribution: corretto
           java-version: 17
 
-      - name: Set up XCode
-        uses: maxim-lobanov/setup-xcode@v1
-        with:
-          xcode-version: latest-stable
-
       - name: Set up Gradle
         uses: gradle/actions/setup-gradle@v4
         with:
@@ -35,11 +31,5 @@ jobs:
           cache-disabled: false
           cache-read-only: false
 
-      - name: Assemble
-        run: ./gradlew assemble
-
-      - name: Run tests
-        run: ./gradlew test
-
-      - name: Binary compatibility validation
-        run: ./gradlew apiCheck
+      - name: Generate and submit dependency graph
+        uses: gradle/actions/dependency-submission@v4
