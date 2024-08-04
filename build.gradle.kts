@@ -110,6 +110,8 @@ val dokkaJavaDocJarTaskProvider = tasks.register<Jar>("dokkaJavaDocJar") {
 publishing {
     publications {
         withType<MavenPublication> {
+            artifact(dokkaJavaDocJarTaskProvider)
+
             pom {
                 name = "Material Color Scheme"
                 description = "Dynamic Material 3 color scheme builder for Compose"
@@ -143,8 +145,6 @@ publishing {
                     url = "https://github.com/g000sha256/material_color_scheme/issues"
                 }
             }
-
-            artifact(dokkaJavaDocJarTaskProvider)
         }
     }
 }
