@@ -4,11 +4,8 @@ import org.jetbrains.kotlin.gradle.ExperimentalKotlinGradlePluginApi
 import org.jetbrains.kotlin.gradle.dsl.JvmTarget
 import org.jetbrains.kotlin.gradle.targets.js.dsl.ExperimentalWasmDsl
 
-val projectName = name
-
-val libraryGroup = "dev.g000sha256"
-val libraryModule = "material-color-scheme"
-val libraryVersion = "1.3.1"
+group = "dev.g000sha256"
+version = "1.3.1"
 
 buildscript {
     dependencies { classpath(catalog.plugin.sonatype) }
@@ -109,11 +106,6 @@ val dokkaJavaDocJarTaskProvider = tasks.register<Jar>("dokkaJavaDocJar") {
 publishing {
     publications {
         withType<MavenPublication> {
-            groupId = libraryGroup
-            version = libraryVersion
-
-            afterEvaluate { artifactId = artifactId.replace(projectName, libraryModule) }
-
             pom {
                 name = "Material Color Scheme"
                 description = "Dynamic Material 3 color scheme builder for Compose"
