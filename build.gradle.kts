@@ -12,11 +12,11 @@ buildscript {
 }
 
 plugins {
-    alias(catalog.plugins.android.library)
+    alias(catalog.plugins.androidLibrary)
+    alias(catalog.plugins.jetbrains.binaryCompatibilityValidator)
     alias(catalog.plugins.jetbrains.compose)
     alias(catalog.plugins.jetbrains.dokka)
-    alias(catalog.plugins.jetbrains.kotlin.binaryCompatibilityValidator)
-    alias(catalog.plugins.jetbrains.kotlin.multiplatform)
+    alias(catalog.plugins.jetbrains.kotlinMultiplatform)
     id("org.gradle.maven-publish")
     id("org.gradle.signing")
 }
@@ -85,7 +85,7 @@ kotlin {
                 implementation(catalog.library.compose.animationCore)
                 implementation(catalog.library.compose.material3)
                 implementation(catalog.library.compose.runtime)
-                implementation(catalog.library.compose.ui.graphics)
+                implementation(catalog.library.compose.uiGraphics)
                 implementation(catalog.library.materialColorUtilities)
             }
         }
