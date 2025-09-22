@@ -1,24 +1,18 @@
-import g000sha256.sonatype_maven_central.SonatypeMavenCentralType
-import g000sha256.sonatype_maven_central.sonatypeMavenCentralRepository
-import org.jetbrains.kotlin.gradle.ExperimentalKotlinGradlePluginApi
+import org.jetbrains.kotlin.gradle.ExperimentalWasmDsl
 import org.jetbrains.kotlin.gradle.dsl.JvmTarget
-import org.jetbrains.kotlin.gradle.targets.js.dsl.ExperimentalWasmDsl
 
 group = "dev.g000sha256"
 version = "1.4.0"
 
-buildscript {
-    dependencies { classpath(catalog.plugin.sonatype) }
-}
-
 plugins {
-    alias(catalog.plugins.androidLibrary)
-    alias(catalog.plugins.jetbrains.binaryCompatibilityValidator)
-    alias(catalog.plugins.jetbrains.compose)
-    alias(catalog.plugins.jetbrains.dokka)
-    alias(catalog.plugins.jetbrains.kotlinMultiplatform)
-    id("org.gradle.maven-publish")
-    id("org.gradle.signing")
+    alias(notation = catalog.plugins.android)
+    alias(notation = catalog.plugins.g000sha256.sonatypeMavenCentral)
+    alias(notation = catalog.plugins.gradle.mavenPublish)
+    alias(notation = catalog.plugins.gradle.signing)
+    alias(notation = catalog.plugins.jetBrains.binaryCompatibilityValidator)
+    alias(notation = catalog.plugins.jetBrains.compose)
+    alias(notation = catalog.plugins.jetBrains.dokka)
+    alias(notation = catalog.plugins.jetBrains.kotlin)
 }
 
 val kotlinModuleName = "g000sha256.material.color_scheme"
@@ -47,7 +41,6 @@ kotlin {
     androidTarget {
         publishLibraryVariants("release")
 
-        @OptIn(ExperimentalKotlinGradlePluginApi::class)
         compilerOptions {
             jvmTarget = JvmTarget.JVM_1_8
             moduleName = kotlinModuleName
@@ -55,7 +48,6 @@ kotlin {
     }
 
     jvm {
-        @OptIn(ExperimentalKotlinGradlePluginApi::class)
         compilerOptions {
             jvmTarget = JvmTarget.JVM_1_8
             moduleName = kotlinModuleName
@@ -77,20 +69,22 @@ kotlin {
     sourceSets {
         commonMain {
             dependencies {
-                implementation(catalog.library.jetbrains.annotations)
-                implementation(catalog.library.jetbrains.kotlin)
+                implementation(dependencyNotation = catalog.libraries.jetBrains.annotations)
+                implementation(dependencyNotation = catalog.libraries.jetBrains.kotlin)
 
-                implementation(catalog.library.compose.animation)
-                implementation(catalog.library.compose.animationCore)
-                implementation(catalog.library.compose.material3)
-                implementation(catalog.library.compose.runtime)
-                implementation(catalog.library.compose.uiGraphics)
-                implementation(catalog.library.materialColorUtilities)
+                implementation(dependencyNotation = catalog.libraries.compose.animation)
+                implementation(dependencyNotation = catalog.libraries.compose.animationCore)
+                implementation(dependencyNotation = catalog.libraries.compose.material3)
+                implementation(dependencyNotation = catalog.libraries.compose.runtime)
+                implementation(dependencyNotation = catalog.libraries.compose.uiGraphics)
+                implementation(dependencyNotation = catalog.libraries.materialColorUtilities)
             }
         }
 
         commonTest {
-            dependencies { implementation(catalog.test.kotlin) }
+            dependencies {
+                implementation(dependencyNotation = catalog.test.kotlin)
+            }
         }
     }
 }
@@ -177,8 +171,6 @@ tasks.withType<Sign> {
 }
 
 sonatypeMavenCentralRepository {
-    type = SonatypeMavenCentralType.Manual
-
     credentials {
         username = getProperty(key = "SonatypeMavenCentral.Username") ?: getEnvironment(key = "SONATYPE_USERNAME")
         password = getProperty(key = "SonatypeMavenCentral.Password") ?: getEnvironment(key = "SONATYPE_PASSWORD")

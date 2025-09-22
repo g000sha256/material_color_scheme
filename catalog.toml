@@ -1,27 +1,31 @@
 [versions]
-compose = "1.6.11"
-kotlin = "2.0.0"
-
-[libraries]
-library-compose-animation = { module = "org.jetbrains.compose.animation:animation", version.ref = "compose" }
-library-compose-animationCore = { module = "org.jetbrains.compose.animation:animation-core", version.ref = "compose" }
-library-compose-material3 = { module = "org.jetbrains.compose.material3:material3", version.ref = "compose" }
-library-compose-runtime = { module = "org.jetbrains.compose.runtime:runtime", version.ref = "compose" }
-library-compose-uiGraphics = { module = "org.jetbrains.compose.ui:ui-graphics", version.ref = "compose" }
-
-library-jetbrains-annotations = { module = "org.jetbrains:annotations", version = "24.1.0" }
-library-jetbrains-kotlin = { module = "org.jetbrains.kotlin:kotlin-stdlib", version.ref = "kotlin" }
-
-library-materialColorUtilities = { module = "com.materialkolor:material-color-utilities", version = "1.7.0" }
-
-test-kotlin = { module = "org.jetbrains.kotlin:kotlin-test", version.ref = "kotlin" }
-
-plugin-sonatype = { module = "dev.g000sha256:sonatype-maven-central", version = "0.0.6" }
+android = "8.13.0"
+annotations = "26.0.2"
+binaryCompatibilityValidator = "0.18.1"
+compose = "1.9.0"
+composeMaterial = "1.8.2"
+dokka = "2.0.0"
+kotlin = "2.2.20"
+materialKolor = "3.0.1"
+sonatypeMavenCentral = "1.1.1"
 
 [plugins]
-androidLibrary = { id = "com.android.library", version = "8.4.2" }
+android = { id = "com.android.library", version.ref = "android" }
+g000sha256-sonatypeMavenCentral = { id = "dev.g000sha256.sonatype-maven-central", version.ref = "sonatypeMavenCentral" }
+gradle-mavenPublish = { id = "org.gradle.maven-publish" }
+gradle-signing = { id = "org.gradle.signing" }
+jetBrains-binaryCompatibilityValidator = { id = "org.jetbrains.kotlinx.binary-compatibility-validator", version.ref = "binaryCompatibilityValidator" }
+jetBrains-compose = { id = "org.jetbrains.kotlin.plugin.compose", version.ref = "kotlin" }
+jetBrains-dokka = { id = "org.jetbrains.dokka", version.ref = "dokka" }
+jetBrains-kotlin = { id = "org.jetbrains.kotlin.multiplatform", version.ref = "kotlin" }
 
-jetbrains-binaryCompatibilityValidator = { id = "org.jetbrains.kotlinx.binary-compatibility-validator", version = "0.16.2" }
-jetbrains-compose = { id = "org.jetbrains.kotlin.plugin.compose", version.ref = "kotlin" }
-jetbrains-dokka = { id = "org.jetbrains.dokka", version = "1.9.20" }
-jetbrains-kotlinMultiplatform = { id = "org.jetbrains.kotlin.multiplatform", version.ref = "kotlin" }
+[libraries]
+libraries-compose-animation = { module = "org.jetbrains.compose.animation:animation", version.ref = "compose" }
+libraries-compose-animationCore = { module = "org.jetbrains.compose.animation:animation-core", version.ref = "compose" }
+libraries-compose-material3 = { module = "org.jetbrains.compose.material3:material3", version.ref = "composeMaterial" }
+libraries-compose-runtime = { module = "org.jetbrains.compose.runtime:runtime", version.ref = "compose" }
+libraries-compose-uiGraphics = { module = "org.jetbrains.compose.ui:ui-graphics", version.ref = "compose" }
+libraries-jetBrains-annotations = { module = "org.jetbrains:annotations", version.ref = "annotations" }
+libraries-jetBrains-kotlin = { module = "org.jetbrains.kotlin:kotlin-stdlib", version.ref = "kotlin" }
+libraries-materialColorUtilities = { module = "com.materialkolor:material-color-utilities", version.ref = "materialKolor" }
+test-kotlin = { module = "org.jetbrains.kotlin:kotlin-test", version.ref = "kotlin" }
