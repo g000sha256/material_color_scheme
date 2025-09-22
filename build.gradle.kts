@@ -24,7 +24,7 @@ plugins {
 val kotlinModuleName = "g000sha256.material.color_scheme"
 
 android {
-    compileSdk = 34
+    compileSdk = 36
     namespace = kotlinModuleName
 
     defaultConfig { minSdk = 21 }
