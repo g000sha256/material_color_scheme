@@ -22,7 +22,6 @@ plugins {
 }
 
 val kotlinModuleName = "g000sha256.material.color_scheme"
-val androidNamespace = kotlinModuleName
 
 android {
     compileSdk = 34
@@ -136,8 +135,8 @@ publishing {
 
                 scm {
                     connection = "scm:git:git://github.com/g000sha256/material_color_scheme.git"
-                    developerConnection = "scm:git:ssh://github.com:g000sha256/material_color_scheme.git"
-                    url = "https://github.com/g000sha256/material_color_scheme/tree/master"
+                    developerConnection = "scm:git:git@github.com:g000sha256/material_color_scheme.git"
+                    url = "https://github.com/g000sha256/material_color_scheme"
                 }
 
                 issueManagement {
@@ -150,8 +149,8 @@ publishing {
 }
 
 signing {
-    val key = getProperty("Signing.Key") ?: getEnvironment("SIGNING_KEY")
-    val password = getProperty("Signing.Password") ?: getEnvironment("SIGNING_PASSWORD")
+    val key = getProperty(key = "Signing.Key") ?: getEnvironment(key = "SIGNING_KEY")
+    val password = getProperty(key = "Signing.Password") ?: getEnvironment(key = "SIGNING_PASSWORD")
     useInMemoryPgpKeys(key, password)
 
     sign(publishing.publications)
@@ -181,13 +180,13 @@ sonatypeMavenCentralRepository {
     type = SonatypeMavenCentralType.Manual
 
     credentials {
-        username = getProperty("SonatypeMavenCentral.Username") ?: getEnvironment("SONATYPE_USERNAME")
-        password = getProperty("SonatypeMavenCentral.Password") ?: getEnvironment("SONATYPE_PASSWORD")
+        username = getProperty(key = "SonatypeMavenCentral.Username") ?: getEnvironment(key = "SONATYPE_USERNAME")
+        password = getProperty(key = "SonatypeMavenCentral.Password") ?: getEnvironment(key = "SONATYPE_PASSWORD")
     }
 }
 
 private fun getProperty(key: String): String? {
-    return properties[key] as String?
+    return properties.get(key = key) as String?
 }
 
 private fun getEnvironment(key: String): String? {
